@@ -1,0 +1,1734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Statistics Metrics</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="leftMargin">
+    <number>6</number>
+   </property>
+   <property name="topMargin">
+    <number>6</number>
+   </property>
+   <property name="rightMargin">
+    <number>6</number>
+   </property>
+   <property name="bottomMargin">
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-221</y>
+        <width>271</width>
+        <height>1791</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="group_capture_metadata">
+         <property name="minimumSize">
+          <size>
+           <width>170</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Capture Metadata</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>12</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btn_toggle_capture_metadata">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Toggle Section</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_capture_type">
+            <property name="text">
+             <string>Capture Type</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_capture_integrity">
+            <property name="text">
+             <string>Capture Integrity</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_application">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Application</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_resolution">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Resolution</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_runtime">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Runtime</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_gpu">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>GPU</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_comments">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Comments</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_file_name">
+            <property name="text">
+             <string>File Name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_file_path">
+            <property name="text">
+             <string>File Path</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="group_display_metrics">
+         <property name="title">
+          <string> Display</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_21">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>12</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btn_toggle_display_metrics">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Toggle Section</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_duration">
+            <property name="text">
+             <string>Duration</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_frames">
+            <property name="text">
+             <string>Number of Frames</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_synced_frames">
+            <property name="text">
+             <string>Synchronized Frames</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="group_performance_metrics">
+         <property name="minimumSize">
+          <size>
+           <width>170</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Performance</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_24">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btn_toggle_performance_metrics">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Toggle Section</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="info_label_performance">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note&lt;/span&gt;: All calculations for this section are based from raw frame time values and then converted to frames per second.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::RichText</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="subgroup_performance_simple">
+            <property name="title">
+             <string>Simple Frame Rate Metrics</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_13">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="check_metric_min_fps">
+               <property name="text">
+                <string>Minimum FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_average_fps">
+               <property name="text">
+                <string>Average FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_median_fps">
+               <property name="text">
+                <string>Median FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_max_fps">
+               <property name="text">
+                <string>Maximum FPS</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="subgroup_performance_low_pct">
+            <property name="title">
+             <string>Low Frame Rate Percentiles</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="info_label_low_pct">
+               <property name="text">
+                <string>&quot;Low&quot; percentiles take the average of all frame times that meet or exceed a percentile rank, allowing stutter to influence the value to some degree.</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_low_0_1">
+               <property name="text">
+                <string>0.1% Low</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_low_1">
+               <property name="text">
+                <string>1% Low</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="subgroup_performance_trad_pct">
+            <property name="title">
+             <string>Traditional Frame Rate Percentiles</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_26">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QLabel" name="label_percentile_method">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Percentile calculations for frame time intervals can either use the full data set (&lt;span style=&quot; font-weight:600;&quot;&gt;inclusive&lt;/span&gt;) or with a portion of the smallest/largest values omitted (&lt;span style=&quot; font-weight:600;&quot;&gt;exclusive&lt;/span&gt;). FrameView provides exclusive percentiles in the summary log file.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;NOTE&lt;/span&gt;: There are two noteable consequences of the exclusive method: 1) a minumum number of frames is required to calculate a given percentile rank (e.g., calculating the 1st percentile will require at least 100 frames), and; 2) this compresses the total percentile range, especially with a small number of frames, and so any clipped values are clamped to the min/max value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="text">
+                  <string>Percentile Method</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="combo_percentile_method">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Percentile calculations for frame time intervals can either use the full data set (&lt;span style=&quot; font-weight:600;&quot;&gt;inclusive&lt;/span&gt;) or with a portion of the smallest/largest values omitted (&lt;span style=&quot; font-weight:600;&quot;&gt;exclusive&lt;/span&gt;). FrameView provides exclusive percentiles in the summary log file.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;NOTE&lt;/span&gt;: There are two noteable consequences of the exclusive method: 1) a minumum number of frames is required to calculate a given percentile rank (e.g., calculating the 1st percentile will require at least 100 frames), and; 2) this compresses the total percentile range, especially with a small number of frames, and so any clipped values are clamped to the min/max value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <property name="maxCount">
+                  <number>2</number>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Inclusive</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Exclusive</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_0_1">
+               <property name="text">
+                <string>0.1%</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_1">
+               <property name="text">
+                <string>1%</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_5">
+               <property name="text">
+                <string>5%</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_10">
+               <property name="text">
+                <string>10%</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="subgroup_performance_relative">
+            <property name="title">
+             <string>Relative Frame Rate Metrics</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_27">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="check_metric_low_0_1_over_avg">
+               <property name="text">
+                <string>0.1% Low / Average FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_0_1_over_avg">
+               <property name="text">
+                <string>0.1% / Average FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_low_1_over_avg">
+               <property name="text">
+                <string>1% Low / Average FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_1_over_avg">
+               <property name="text">
+                <string>1% / Average FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_5_over_avg">
+               <property name="text">
+                <string>5% / Average FPS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_pct_10_over_avg">
+               <property name="text">
+                <string>10% / Average FPS</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="group_stutter_metrics">
+         <property name="minimumSize">
+          <size>
+           <width>170</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Stuttering</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_14">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>12</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btn_toggle_stutter_metrics">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Toggle Section</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_stutter_number">
+            <property name="text">
+             <string>Number of Stutter Events</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_stutter_proportional">
+            <property name="text">
+             <string>Proportional Stutter</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_stutter_average">
+            <property name="text">
+             <string>Average Stutter</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="check_metric_stutter_max">
+            <property name="text">
+             <string>Maximum Stutter</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="group_hardware_metrics">
+         <property name="minimumSize">
+          <size>
+           <width>170</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Hardware</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_18">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btn_toggle_hardware_metrics">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Toggle Section</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="subgroup_hardware_gpu">
+            <property name="title">
+             <string>GPU Metrics</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_28">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="check_metric_present_latency">
+               <property name="text">
+                <string>Average Present Latency</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_perf_per_watt">
+               <property name="text">
+                <string>Average Perf-per-Watt</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_gpu_board_power">
+               <property name="text">
+                <string>Average GPU Board Power</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_gpu_chip_power">
+               <property name="text">
+                <string>Average GPU Chip Power</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_gpu_frequency">
+               <property name="text">
+                <string>Average GPU Frequency</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_gpu_temperature">
+               <property name="text">
+                <string>Average GPU Temperature</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_gpu_utilization">
+               <property name="text">
+                <string>Average GPU Utilization</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_gpu_voltage">
+               <property name="text">
+                <string>Average GPU Voltage</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="subgroup_hardware_cpu">
+            <property name="title">
+             <string>CPU Metrics</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_29">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="check_metric_cpu_power">
+               <property name="text">
+                <string>Average CPU Power</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_cpu_frequency">
+               <property name="text">
+                <string>Average CPU Frequency</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_cpu_temperature">
+               <property name="text">
+                <string>Average CPU Temperature</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_cpu_utilization">
+               <property name="text">
+                <string>Average CPU Utilization</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="subgroup_hardware_battery">
+            <property name="title">
+             <string>Battery Metrics</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_30">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="check_metric_battery_charge">
+               <property name="text">
+                <string>Average Battery Charge Rate</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="check_metric_battery_life">
+               <property name="text">
+                <string>Projected Battery Life</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_ok">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>OK</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_cancel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_toggle_capture_metadata</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_capture_type</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>-507</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>-478</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_capture_metadata</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_capture_integrity</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>52</x>
+     <y>-507</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>39</x>
+     <y>-455</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_capture_metadata</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_file_name</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>-507</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>37</x>
+     <y>-317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_capture_metadata</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_file_path</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>47</x>
+     <y>-507</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>37</x>
+     <y>-294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_display_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_duration</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>52</x>
+     <y>-222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>-193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_display_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_frames</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>79</x>
+     <y>-222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>-170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_display_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_synced_frames</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>-222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>-147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_present_latency</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>981</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_perf_per_watt</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1004</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_gpu_board_power</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1027</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_gpu_chip_power</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1050</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_gpu_frequency</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1073</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_gpu_temperature</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1096</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_gpu_utilization</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_gpu_voltage</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_cpu_power</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_cpu_frequency</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_cpu_temperature</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_cpu_utilization</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1283</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_battery_charge</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1339</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_hardware_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_battery_life</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>932</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>1362</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_average_fps</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>197</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_min_fps</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>197</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_max_fps</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>197</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_pct_0_1_over_avg</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>607</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_pct_1_over_avg</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>653</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_pct_5_over_avg</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>676</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>check_metric_pct_10_over_avg</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>699</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_ok</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>211</x>
+     <y>392</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>410</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>292</x>
+     <y>392</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>410</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_stutter_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_stutter_number</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>762</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>791</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_stutter_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_stutter_proportional</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>762</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>814</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_stutter_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_stutter_average</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>762</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>837</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_stutter_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_stutter_max</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>762</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>860</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_low_0_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>83</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_low_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>90</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_low_0_1_over_avg</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>55</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_low_1_over_avg</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>96</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_median_fps</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>228</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_pct_10</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>512</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_pct_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>466</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_pct_5</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>489</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_toggle_performance_metrics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>check_metric_pct_0_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>443</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

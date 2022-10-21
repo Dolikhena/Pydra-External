@@ -1,0 +1,20 @@
+# Bytecode and caches
+.qt_for_python/
+.vscode/
+**/__pycache__/
+
+# Directories
+build/
+dev/
+dist/
+logs/
+saved/
+
+# Files
+**.csv
+**.json
+**.pyc
+**.pyo
+config.ini
+unittests**.py
+ui_**.py

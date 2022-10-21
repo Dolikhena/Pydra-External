@@ -1,0 +1,121 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+
+block_cipher = None
+
+excluded_binaries = [
+    "d3dcompiler_47.dll",
+    "libGLESv2.dll",
+    "opengl32sw.dll",
+    "Qt6Test.dll",
+    "sqlite3.dll",
+    "vcruntime140.dll",
+    "**.ui",
+]
+
+a = Analysis(
+    ['__init__.py'],
+    pathex=["."],
+    binaries=[],
+    datas=[
+        ("./version.rc",						"."),
+        ("./gui/dark.css",						"gui"),
+        ("./gui/light.css",						"gui"),
+        ("./gui/fonts/OpenSans-Regular.ttf",	"gui/fonts"),
+        ("./gui/fonts/OpenSans-Bold.ttf",		"gui/fonts"),
+        ("./gui/fonts/OpenSans-Italic.ttf",		"gui/fonts"),
+        ("./gui/icons/brightness-up.svg",		"gui/icons"),
+        ("./gui/icons/down_arrow.png",          "gui/icons"),
+        ("./gui/icons/down_arrow_disabled.png",	"gui/icons"),
+        ("./gui/icons/integrity-dirty.png",		"gui/icons"),
+        ("./gui/icons/integrity-ideal.png",		"gui/icons"),
+        ("./gui/icons/integrity-invalid.png",	"gui/icons"),
+        ("./gui/icons/integrity-mangled.png",	"gui/icons"),
+        ("./gui/icons/integrity-partial.png",	"gui/icons"),
+        ("./gui/icons/integrity-pending.png",	"gui/icons"),
+        ("./gui/icons/moon-stars.svg",		    "gui/icons"),
+        ("./gui/icons/pydra.ico",				"gui/icons"),
+        ("./gui/icons/up_arrow.png",	        "gui/icons"),
+        ("./gui/icons/up_arrow_disabled.png",	"gui/icons"),
+	],
+    hiddenimports=[
+        "pyqtgraph.graphicsItems.ViewBox.axisCtrlTemplate_pyqt6",
+        "pyqtgraph.graphicsItems.PlotItem.plotConfigTemplate_pyqt6",
+        "pyqtgraph.imageview.ImageViewTemplate_pyqt6",
+	],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[
+        "altgraph",
+        "appdirs",
+        "black",
+        "click",
+        "colorama",
+        "future",
+        "mando",
+        "mccabe",
+        "mypy",
+        "mypy-extensions",
+        "pip-autoremove",
+        "packaging",
+        "pathspec",
+        "platformdirs",
+        "pycodestyle",
+        "pydocstyle",
+        "pyflakes",
+        "pyinstaller",
+        "pyinstaller-hooks-contrib",
+        "pylama",
+        "pyparsing",
+        "pytoolconfig",
+        "pywin32-ctypes",
+        "regex",
+        "rope",
+        "snowballstemmer",
+        "toml",
+        "tomli",
+        "typed-ast",
+        "typing-extensions",
+	],
+    win_no_prefer_redirects=True,
+    win_private_assemblies=True,
+    cipher=block_cipher,
+    noarchive=False,
+)
+
+a.binaries = TOC([x for x in a.binaries if x[0] not in excluded_binaries])
+
+splash = Splash(
+    "./gui/splash.png",
+    binaries=a.binaries,
+    datas=a.datas,
+    text_pos=(8, 119),
+    text_size=8,
+    text_color="#aaaaaa",
+    max_img_size=(500, 140),
+)
+
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    splash,
+    splash.binaries,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
+    [],
+    name='Pydra',
+    icon="./gui/icons/pydra.ico",
+    version="version.rc",
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=False,
+    disable_windowed_traceback=False,
+)
