@@ -140,6 +140,4 @@ class RivaTuner(CaptureFile):
     def tainted_frametimes(self) -> bool:
         """Return a bool indicating whether the capture has valid performance data."""
         has_fps: bool = self.alias_present("Frametimes") or self.alias_present("Framerate")
-        if not has_fps:
-            return True
-        return super().tainted_frametimes()
+        return super().tainted_frametimes() if has_fps else True

@@ -648,7 +648,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.menu_metadata_remove_all.triggered.connect(remove_all_records)
         self.menu_about_shortcuts.triggered.connect(lambda: HelpShortcutsDialog().exec())
         self.menu_about_github.triggered.connect(
-            lambda: open_browser("https://github.com/Dolikhena/Pydra")
+            lambda: open_browser("https://github.com/Dolikhena/Pydra-External")
         )
 
         # Connect to signal-emitting objects located in other Pydra modules

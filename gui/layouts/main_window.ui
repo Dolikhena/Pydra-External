@@ -21,7 +21,7 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>Pydra (version 1.0.9, build 41584)</string>
+   <string>Pydra (version 1.0.9, build 41586)</string>
   </property>
   <widget class="QWidget" name="central_layout">
    <layout class="QGridLayout" name="gridLayout_15">

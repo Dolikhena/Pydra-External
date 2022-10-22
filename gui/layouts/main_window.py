@@ -2954,7 +2954,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Pydra (version 1.0.9, build 41584)"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Pydra (version 1.0.9, build 41586)"))
         self.btn_import_file.setText(_translate("MainWindow", "Add Files"))
         self.btn_import_folder.setText(_translate("MainWindow", "Add Folders"))
         self.btn_remove_all_files.setText(_translate("MainWindow", "Remove All"))
