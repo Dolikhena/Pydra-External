@@ -3,7 +3,7 @@
 from core.exceptions import FileIntegrityError
 from core.logger import get_logger, log_exception, log_table
 from core.stopwatch import stopwatch
-from numpy import any, max, min, ndarray, where
+from numpy import any, average, max, min, ndarray, where
 from pandas import DataFrame, Series, errors, read_csv
 from pandas.errors import DtypeWarning
 
@@ -11,8 +11,6 @@ from formats.capturefile import CaptureFile, InspectionItem
 from formats.integrity import Integrity
 
 logger = get_logger(__name__)
-
-_PRESENT_LATENCY_THRESHOLD: float = 1 / 3  # One-third of frames are allowed to be late
 
 
 class PresentMon(CaptureFile):
@@ -231,7 +229,7 @@ class PresentMon(CaptureFile):
         present_mode_consistency = default
         present_mode_validity = default
         disp_change_validity = default
-        disp_latency_validity = default
+        render_queue_depth = default
 
         try:
             data = None
@@ -331,13 +329,14 @@ class PresentMon(CaptureFile):
                 "Zeros were detected in frame time data",
             )
 
-            # data variable is reused from previous test
-            heuristic = self.column("MsUntilDisplayed")[self.column("MsUntilDisplayed") > data]
-            result = _PRESENT_LATENCY_THRESHOLD > (len(heuristic) / self.frames())
-            disp_latency_validity = InspectionItem(
+            # Data variable is reused from previous test
+            # This is essentially the same as the Render Queue Depth column from FrameView
+            heuristic = average(self.column("MsUntilDisplayed") / data)
+            result = heuristic < 1
+            render_queue_depth = InspectionItem(
                 result,
-                0 if result else len(heuristic),
-                "Application may not have used exclusive fullscreen mode",
+                0 if result else len(self.column("MsUntilDisplayed") > data),
+                "Deep render queue (application may have used a borderless/windowed mode)",
             )
 
             data = self.column("Runtime")
@@ -382,7 +381,7 @@ class PresentMon(CaptureFile):
                 "Present Mode Consistency": present_mode_consistency,
                 "Hardware-Based Present Mode": present_mode_validity,
                 "Display Change Validity": disp_change_validity,
-                "Render Present Latency": disp_latency_validity,
+                "Render Queue Depth": render_queue_depth,
             }
 
     def passed_inspection(self) -> bool:

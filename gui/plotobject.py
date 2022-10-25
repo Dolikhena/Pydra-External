@@ -14,6 +14,7 @@ from core.utilities import (
     stat_table_headers,
     table_indices,
     time_scale,
+    time_str_long,
     time_str_short,
 )
 from formats.capturefile import CaptureFile, InspectionItem
@@ -929,17 +930,12 @@ class PlotObject:
         }
 
     def color_marked_properties(self, property_name: str) -> str:
-        """Inspect property values and generate HTML to highlight questionable properties in tooltips.
-
-        Args:
-            * property_name (str): Name of the property to be evaluated.
-
-        Returns:
-            * str: Text to write into tooltips, possibly containing basic HTML for better visibility.
-        """
+        """Inspect property values and generate HTML to highlight questionable properties in tooltips."""
         property_value = self.file.properties[property_name]
+
         if "*" in property_value:
             return f"<font color='red'><b>{property_value}</b></font>"
+
         return property_value
 
     @stopwatch(silent=True)
@@ -950,8 +946,50 @@ class PlotObject:
         if not self.file.integrity.valid():
             return f"<span>{tooltip_text}</span>"
 
-        # Add capture metadata
-        tooltip_text += (
+        concerns: tuple = (
+            self.file.duplicate_headers is not None,
+            not self.file.alias_in_headers("Elapsed Time"),
+            not self.file.alias_in_headers("Frametimes"),
+            self.file.tainted_frametimes(),
+            hasattr(self.file, "MAJOR_INSPECTION_ITEMS") and not self.file.passed_inspection(),
+        )
+
+        tooltip_text += self.tooltip_metadata()
+        tooltip_text += self.tooltip_basic_stats(concerns)
+
+        if not any(concerns):
+            return f"<span>{tooltip_text}</span>"
+        elif "<font color='red'>" in tooltip_text:
+            tooltip_text += """<br><br>* Inconsistencies or problematic values<br>
+            identified in fields <font color='red'><b>highlighted in red</b></font>."""
+
+        tooltip_text += self.tooltip_major_issues(concerns)
+        return f"<span>{tooltip_text}</span>"
+
+    def tooltip_major_issues(self, concerns: tuple) -> str:
+        duplicate_headers, missing_time, missing_fps, tainted_fps, inspection_issues = concerns
+        text: str = "<br><br><b>Capture Inspection:</b>"
+        red_x: str = "<br> ❌ "
+
+        if duplicate_headers:
+            text += f"{red_x}Duplicate column headers ({len(self.file.duplicate_headers)})"
+
+        if missing_time:
+            text += f"{red_x}Does not contain time data"
+
+        if missing_fps:
+            text += f"{red_x}Does not contain performance data"
+        elif tainted_fps:
+            text += f"{red_x}Zeroes or invalid values in performance data"
+
+        if inspection_issues:
+            text += self.tooltip_inspection(red_x)
+
+        return text
+
+    def tooltip_metadata(self):
+        """Generate a text block of the file's metadata."""
+        text: str = (
             f"<br><br><b>Capture Software</b>: {self.file.app_name} {self.file.version}<br>"
             f"<b>Application</b>: {self.color_marked_properties('Application')}<br>"
             f"<b>Resolution</b>: {self.color_marked_properties('Resolution')}<br>"
@@ -961,45 +999,57 @@ class PlotObject:
         )
 
         if self.file.properties["Legend"][0]:
-            tooltip_text += f"<br><b>Legend</b>: {self.file.properties['Legend'][1]}"
+            text += f"<br><b>Legend</b>: {self.file.properties['Legend'][1]}"
 
-        # Call out integrity concerns if any are present
-        if "<font color='red'>" in tooltip_text:
-            tooltip_text += """<br><br>* Inconsistencies or problematic values<br>
-            identified in fields <font color='red'><b>highlighted in red</b></font>."""
+        return text
 
-        # Check for general concerns
-        duplicate_headers: bool = self.file.duplicate_headers is not None
-        missing_time: bool = not self.file.alias_in_headers("Elapsed Time")
-        missing_fps: bool = not self.file.alias_in_headers("Frametimes")
-        tainted_fps: bool = self.file.tainted_frametimes()
-        inspection_issues: bool = (
-            hasattr(self.file, "MAJOR_INSPECTION_ITEMS") and not self.file.passed_inspection()
-        )
+    def tooltip_basic_stats(self, concerns: tuple):
+        """Generate a text block of some basic statistics."""
+        try:
+            # TODO: Update on file alterations and changes to decimal places or time scale
+            _, missing_time, missing_fps, tainted_fps, _ = concerns
 
-        if not any((duplicate_headers, missing_time, missing_fps, tainted_fps, inspection_issues)):
-            return f"<span>{tooltip_text}</span>"
+            # Elapsed time
+            text: str = "<br><br><b>Duration</b>: "
+            if missing_time:
+                text += "<font color='red'><b>N/A</b></font>"
+            else:
+                precision: int = int(setting("General", "DecimalPlaces"))
+                time_scale: str = time_str_long()
+                text += (
+                    f"{self.get_stat(f'Duration {time_str_short()}'):,.{precision}f} {time_scale}"
+                )
 
-        tooltip_text += "<br><br><b>Capture Inspection:</b>"
-        red_x: str = "<br> ❌ "
+            # Performance
+            text += "<br><b>Average FPS</b>: "
+            avg_fps: str = self.get_stat("Average FPS")
+            low_fps: str = self.get_stat("1% Low FPS")
 
-        if duplicate_headers:
-            tooltip_text += f"{red_x}Duplicate column headers ({len(self.file.duplicate_headers)})"
+            if avg_fps != "N/A":
+                avg_fps = f"{avg_fps:,.{precision}f}"
 
-        if missing_time:
-            tooltip_text += f"{red_x}Does not contain time data"
+            if low_fps != "N/A":
+                low_fps = f"{low_fps:,.{precision}f}"
 
-        if missing_fps:
-            tooltip_text += f"{red_x}Does not contain performance data"
-        elif tainted_fps:
-            tooltip_text += f"{red_x}Zeroes or invalid values in performance data"
+            if missing_fps:
+                text += (
+                    "<font color='red'><b>N/A</b></font>"
+                    "<br><b>1% Low FPS</b>: <font color='red'><b>N/A</b></font>"
+                )
+            elif tainted_fps:
+                text += (
+                    f"<font color='red'><b>{avg_fps}*</b></font>"
+                    f"<br><b>1% Low FPS</b>: <font color='red'><b>{low_fps}</b></font>"
+                )
+            else:
+                text += f"{avg_fps}" f"<br><b>1% Low FPS</b>: {low_fps}"
+        except Exception as e:
+            log_exception(logger, e)
+            text = "<br><br><font color='red'><b>Failed to parse basic stats</b></font>"
+        finally:
+            return text
 
-        if inspection_issues:
-            tooltip_text += self.append_inspection(red_x)
-
-        return f"<span>{tooltip_text}</span>"
-
-    def append_inspection(self, red_x: str) -> str:
+    def tooltip_inspection(self, red_x: str) -> str:
         """Append inspection findings to the tooltip, starting with major issues."""
         major_items: dict = self.file.MAJOR_INSPECTION_ITEMS[self.file.version]
         major_tags: str = f"{red_x}<b>Warning</b>: "

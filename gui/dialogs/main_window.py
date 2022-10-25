@@ -1642,6 +1642,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "Select File(s)",
             launch_path,
             "Common formats (*.csv; *.hml; *.txt);;All Files (*.*)",
+            # options=QFileDialog.Option.DontUseNativeDialog,
         )
 
     def launch_folder_explorer(self, launch_path: str = "") -> str:

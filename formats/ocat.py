@@ -19,7 +19,7 @@ class OCAT(PresentMon):
     HEADER_ALIASES: dict[str, dict[str, str]] = {
         "1.6.1": {
             "Elapsed Time": "TimeInSeconds",
-            "Frametimes": "MsBetweenDisplayChange",
+            "Frametimes": "MsBetweenPresents",
             "Render Present Latency": "MsUntilDisplayed",
             "Unsynchronized Frames": "AllowsTearing",
             "System Latency": "MsEstimatedDriverLag",
@@ -57,7 +57,7 @@ class OCAT(PresentMon):
         Present Flags            Uniformity              1.6
         Present Mode             Uniformity, Type        1.6
         Dropped Frames           Uniformity              1.6
-        MsBetweenDisplayChange   Uniformity              1.6
+        MsBetweenPresents        Uniformity              1.6
         Resolution               Uniformity, Type        1.6
 
         Raises:
